@@ -4,7 +4,7 @@ Django cafe is a way to integrate [Coffeescript](http://jashkenas.github.com/cof
 
 ## Simple Example
     
-    {% load cafe %}
+    {% load coffee %}
     <script src="{% coffee spam.coffee %}"/>
 
 ## Multiple Files
@@ -23,9 +23,9 @@ Make sure cafe is in your installed app, like so. You'll also need to have a wor
 
 ## Settings
 
-### CAFE_MEDIA_DIRECTORY
+### CAFE_MEDIA_ROOT
 
-Default: `MEDIA_DIRECTORY`
+Default: `MEDIA_ROOT`
 
 The location of the .coffee files. 
 
