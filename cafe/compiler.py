@@ -34,7 +34,7 @@ class Compiler(object):
 
     def build(self, output):
         files = map(self.path, self.files)
-        with open(self.path(output), 'w') as out:
+        with open(os.path.join(settings.OUTPUT_DIR, output), 'w') as out:
             proc = subprocess.Popen([settings.BIN, settings.PARAMS] + files,
                                     stdout=subprocess.PIPE)
             stdout, stderr = proc.communicate()

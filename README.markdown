@@ -29,6 +29,12 @@ Default: `MEDIA_ROOT`
 
 The location of the .coffee files. 
 
+### CAFE_COMPILED_DIR
+
+Default: `MEDIA_ROOT/COMPILED`
+
+The location of the compiled .js files. 
+
 ### COFFEE_BIN
 
 Default: `"coffee"`
