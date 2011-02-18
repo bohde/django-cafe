@@ -15,11 +15,11 @@ Django cafe is a way to integrate [Coffeescript](http://jashkenas.github.com/cof
 
 Make sure cafe is in your installed app, like so. You'll also need to have a working installation of Coffeescript.
 
-  INSTALLED_APPS = (
-    ...
-    "cafe", 
-    ...      
-  ) 
+    INSTALLED_APPS = (
+      ...
+      "cafe", 
+      ...      
+    ) 
 
 ## Settings
 
