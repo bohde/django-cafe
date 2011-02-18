@@ -11,6 +11,10 @@ Django cafe is a way to integrate [Coffeescript](http://jashkenas.github.com/cof
 
     <script src="{% coffee foo.coffee bar.coffee %}"/>
 
+## Install
+  
+    `pip install https://github.com/joshbohde/django-cafe/tarball/master`
+
 ## Setup
 
 Make sure cafe is in your installed app, like so. You'll also need to have a working installation of Coffeescript.
