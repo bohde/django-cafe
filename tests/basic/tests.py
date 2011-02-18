@@ -9,23 +9,20 @@ class CoffeeTest(TestCase):
     def path(self, *fs):
         return os.path.join(settings.MEDIA_ROOT, *fs)
 
-    def output(self, *fs):
-        return os.path.join(settings.OUTPUT_DIR, *fs)
-
     def write(self, f, content):
         with open(self.path(f), 'w') as out:
             out.write(content)
     
     def assertFileEquals(self, f, content):
         self.assertEqual(content,
-                         ''.join(open(self.output(f))))
+                         ''.join(open(self.path(f))))
 
     def test_one_file(self):
         OUT = """(function() {\n  console.log('Hello, world!');\n}).call(this);\n"""
         t = Template("""{% load coffee %}{% coffee hello.coffee %}""")
         output = t.render({})
         self.assertFileEquals(output, OUT)
-        os.remove(self.output(output))
+        os.remove(self.path(output))
         
     def test_alter_file(self):
         self.write('test.coffee', "console.log 'test'\n")
@@ -42,8 +39,8 @@ class CoffeeTest(TestCase):
         second = t.render({})
         self.assertFileEquals(second, OUT)
 
-        os.remove(self.output(first))
-        os.remove(self.output(second))
+        os.remove(self.path(first))
+        os.remove(self.path(second))
         os.remove(self.path('test.coffee'))
 
     def test_two_files(self):
@@ -51,6 +48,6 @@ class CoffeeTest(TestCase):
         t = Template("""{% load coffee %}{% coffee hello.coffee goodbye.coffee %}""")
         output = t.render({})
         self.assertFileEquals(output, OUT)
-        os.remove(self.output(output))
+        os.remove(self.path(output))
         
     

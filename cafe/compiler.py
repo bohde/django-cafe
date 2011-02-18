@@ -27,14 +27,9 @@ class Compiler(object):
     def mtimes(self):
         return map(self.mtime, self.files)
     
-    def make_name(self):
-        if len(self.files) == 1:
-            return re.sub('.coffee$', '.js', self.files[0])
-        return hashlib.sha1(''.join(self.files)).hexdigest() + '.js'
-
     def build(self, output):
         files = map(self.path, self.files)
-        with open(os.path.join(settings.OUTPUT_DIR, output), 'w') as out:
+        with open(os.path.join(settings.ABSOLUTE_OUTPUT, output), 'w') as out:
             proc = subprocess.Popen([settings.BIN, settings.PARAMS] + files,
                                     stdout=subprocess.PIPE)
             stdout, stderr = proc.communicate()
@@ -52,4 +47,4 @@ class Compiler(object):
         if previous is None or previous != name:
             self.build(name)
             cache.set(key, name, settings.CACHE_TIME)
-        return name
+        return os.path.join(settings.OUTPUT_DIR, name)

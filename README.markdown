@@ -23,17 +23,17 @@ Make sure cafe is in your installed app, like so. You'll also need to have a wor
 
 ## Settings
 
-### CAFE_MEDIA_ROOT
+### CAFE_ROOT
 
 Default: `MEDIA_ROOT`
 
 The location of the .coffee files. 
 
-### CAFE_COMPILED_DIR
+### CAFE_OUTPUT_DIR
 
-Default: `MEDIA_ROOT/COMPILED`
+Default: `compiled`
 
-The location of the compiled .js files. 
+The location within the `CAFE_ROOT` to store the compiled .js files. 
 
 ### COFFEE_BIN
 
