@@ -47,6 +47,6 @@ The Coffeescript executable.
 
 ### COFFEE_PARAMS
 
-Default: `"-cj"`
+Default: `"--print"`
 
 The parameters sent to the Coffeescript compiler. 

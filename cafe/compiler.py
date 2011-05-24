@@ -26,11 +26,21 @@ class Compiler(object):
     @property
     def mtimes(self):
         return map(self.mtime, self.files)
+
+    @property
+    def params(self):
+        params = ['--compile'] 
+        if len(self.files) > 1:
+            params.append('--join')
+        params.append(settings.PARAMS)
+        return params
+        
     
     def build(self, output):
         files = map(self.path, self.files)
+
         with open(os.path.join(settings.ABSOLUTE_OUTPUT, output), 'w') as out:
-            proc = subprocess.Popen([settings.BIN, settings.PARAMS] + files,
+            proc = subprocess.Popen([settings.BIN] + self.params + files,
                                     stdout=subprocess.PIPE)
             stdout, stderr = proc.communicate()
             out.write(stdout)
