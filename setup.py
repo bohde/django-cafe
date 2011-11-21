@@ -8,5 +8,5 @@ setup(name='django-cafe',
       author='Josh Bohde',
       author_email='josh.bohde@gmail.com',
       url='https://github.com/joshbohde/django-cafe/',
-      packages=['cafe'],
+      packages=['cafe', 'cafe.templatetags',],
 )
